@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!--  <partial name="../Carousel/_CarouselPartial" />  -->
+
+    <div class="container-fluid padding">
+        <div class="row padding">
+
+            <!-- Photo and social media links -->
+            <div class="col-lg-6">
+                <img src="~/images/MyProfile.jpg" class="img-responsive img-thumbnail">
+                <br />
+                <div class="container-fluid">
+                    <div class="row text-center social">
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <a href="https://www.facebook.com/georgecosmin.morosanu" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4">
+                            <a href="https://www.linkedin.com/in/george-cosmin-morosanu-58272115a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <a href="https://github.com/GeorgeMorosanu" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Some info about me -->
+            <div class="col-lg-6">
+                <h3>Hello there!</h3>
+                <p>
+                    My name is George, I'm 22 years old, I'm from Romania, and currently I'm living in Reykjavik, Iceland.
+                </p>
+                <p>
+                    I have finished my undergraduate studies in Romania at <a href="http://www.uaic.ro/en/" target="_blank">"Alexandru Ioan Cuza" University of Iasi</a>, and I have a B.Sc. in the field of <a href="https://www.info.uaic.ro/en/home-page-2/" target="_blank">Computer Science</a>.
+                </p>
+                <p>
+                    Beside my passion for IT, I am interested in Design, Sports, Nutrition, Music and Games.
+                </p>
+                <br>
+                <p style="font-size:50px"> Some more text</p>
+                <p>
+                    You can find more details <a asp-area="" asp-controller="Home" asp-action="About" style="color:blue">Here</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
