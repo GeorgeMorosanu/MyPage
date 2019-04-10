@@ -32,3 +32,4 @@ E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Carousel\_C
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Resume\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Not_Found.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
+E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csprojAssemblyReference.cache

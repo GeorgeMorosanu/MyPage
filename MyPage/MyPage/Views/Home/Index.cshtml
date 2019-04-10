@@ -1,14 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var years = ((new DateTime(1, 1, 1)) + (DateTime.Now - (new DateTime(1996, 9, 17)))).Year - 1;
 }
 <!--  <partial name="../Carousel/_CarouselPartial" />  -->
 
-    <div class="container-fluid padding">
-        <div class="row padding">
+    <div class="container-fluid">
+        <div class="row">
 
             <!-- Photo and social media links -->
             <div class="col-lg-6">
-                <img src="~/images/MyProfile.jpg" class="img-responsive img-thumbnail">
+                <img src="~/images/Profile_Picture_No_Background.png" class="img-responsive img-thumbnail">
                 <br />
                 <div class="container-fluid">
                     <div class="row text-center social">
@@ -29,7 +30,7 @@
             <div class="col-lg-6">
                 <h3>Hello there!</h3>
                 <p>
-                    My name is George, I'm 22 years old, I'm from Romania, and currently I'm living in Reykjavik, Iceland.
+                    My name is George, I'm @years years old, I'm from Romania, and currently I'm living in Reykjavik, Iceland.
                 </p>
                 <p>
                     I have finished my undergraduate studies in Romania at <a href="http://www.uaic.ro/en/" target="_blank">"Alexandru Ioan Cuza" University of Iasi</a>, and I have a B.Sc. in the field of <a href="https://www.info.uaic.ro/en/home-page-2/" target="_blank">Computer Science</a>.

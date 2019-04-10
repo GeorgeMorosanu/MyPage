@@ -2,16 +2,90 @@
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-bottom: 20px;
+    /*background-color:pink !important;*/
+}
+
+.text-vertical-center {
+    margin: auto;
 }
 
 .background-cover {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 100%;
+}
+
+.paragraph{
+    padding-left:3%;
+}
+
+
+.a-text-normal {
+    color: black;
+    text-decoration: none;
+}
+
+.a-text-normal:hover {
+    color: black;
+}
+
+
+.text-size-education-title {
+    font-size: 130%;
+}
+
+.text-size-education-interval{
+    font-size: 115%;
+}
+.text-size-personal-info {
+    font-size: 110%;
+}
+
+.padding-after-section{
+    padding-bottom: 2%
+}
+
+.text-size-bigger {
+    padding-top:2%;
+    font-size: 120%;
+}
+
+.text-size-skills li {
+    font-size: 120%;
+    padding-bottom: 2%;
+}
+
+.padding-left-right-none{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+.personality li, .interests li{
+    font-size: 120%;
+    margin: 0 !important;
+}
+
+.projects li{
+    padding-top: 2%;
+}
+.projects li p{
+    font-size:120%;
+    margin: 0 !important;
 }
 
 .img {
     height: 100%;
-    width: 100%;
+    width: auto;
+}
+
+.interval-color{
+    color:lightslategray
+}
+
+.ul-no-bullets {
+    list-style-type: none;
+}
+
+.ul-no-padding-left{
+    padding-left:0 !important;
 }
 
 .social a {
@@ -33,6 +107,11 @@ body {
 .fa-facebook:hover, .fa-github:hover, .fa-linkedin:hover {
     transition: color .3s;
     color: #393838;
+}
+
+.resume-padding {
+    padding-left: 15%;
+    padding-right: 15%;
 }
 
 
