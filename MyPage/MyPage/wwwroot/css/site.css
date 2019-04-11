@@ -2,7 +2,11 @@
 for details on configuring this project to bundle and minify static web assets. */
 body {
     padding-bottom: 20px;
-    /*background-color:pink !important;*/
+    color: black !important;
+    text-align: justify;
+    word-break: break-word;
+    background: linear-gradient(to right, #D3D3D3, transparent, transparent, transparent, transparent, transparent, #D3D3D3);
+    
 }
 
 .text-vertical-center {
@@ -33,11 +37,16 @@ body {
     font-size: 130%;
 }
 
-.text-size-education-interval{
-    font-size: 115%;
+.education-padding{
+    padding-top: 2%;
 }
+
+.text-size-120 {
+    font-size: 120%;
+}
+
 .text-size-personal-info {
-    font-size: 110%;
+    font-size: 120%;
 }
 
 .padding-after-section{
@@ -47,6 +56,9 @@ body {
 .text-size-bigger {
     padding-top:2%;
     font-size: 120%;
+}
+.text-size-130{
+    font-size:130%;
 }
 
 .text-size-skills li {
@@ -96,22 +108,33 @@ body {
     color: #4267B2 ;
 }
 
+.fa-envelope {
+    color: #F14336;
+}
+
+.fa-instagram {
+    color: #9747B6;
+}
+
+.fa-steam {
+    color: #0E1B2E; /*, #147EAE;*/
+}
 .fa-github {
-    color: #171515 ;
+    color: #171515;
 }
 
 .fa-linkedin {
     color: #0077B5 ;
 }
 
-.fa-facebook:hover, .fa-github:hover, .fa-linkedin:hover {
+.fa-facebook:hover, .fa-github:hover, .fa-linkedin:hover, .fa-envelope:hover, .fa-steam:hover, .fa-instagram:hover {
     transition: color .3s;
     color: #393838;
 }
 
 .resume-padding {
-    padding-left: 15%;
-    padding-right: 15%;
+    padding-left: 13%;
+    padding-right: 13%;
 }
 
 
@@ -137,33 +160,59 @@ body {
     margin: 15px;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
+.language-skills-padding {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.computer-skills-padding {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+#DateTime, #LastUpdate {
+    font-size: 24px;
+}
+#Dates{
+    padding-top: 5%;
+}
+
+.padding-contact{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.rarely {
+    color: darkorange;
+}
+.daily{
+    color: green;
+}
+/*Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap*/
+/*Small (sm) devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) {
+}
+/*Medium (md) devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+    /* Hide/rearrange for smaller screens */
     /* Hide captions */
     .carousel-caption {
         display: none;
     }
-}
-
-/*Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap*/
-
-/*Small (sm) devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) {
-   
-}
-
-/*Medium (md) devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-  
+    #Short-About {
+        padding-top: 3%;
+    }
+    .ul {
+        list-style-type: none;
+    }
 }
 
 /*Large (lg) devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
- 
-}
+/*@media (max-width: 992px) {
+    
+}*/
 
 /*Extra (xl) large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) {
+/*@media (max-width: 1200px) {
 
-}
+}*/

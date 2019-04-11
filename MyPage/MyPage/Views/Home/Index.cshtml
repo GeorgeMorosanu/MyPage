@@ -8,42 +8,106 @@
         <div class="row">
 
             <!-- Photo and social media links -->
-            <div class="col-lg-6">
-                <img src="~/images/Profile_Picture_No_Background.png" class="img-responsive img-thumbnail">
-                <br />
-                <div class="container-fluid">
+            <div id="PhotoAndSocialMedia" class="col-lg-6">
+                <div id="Photo">
+                    <img src="~/images/MyProfile.jpg" class="img-responsive img-thumbnail">
+                </div>
+                <div id="Social" class="container-fluid">
                     <div class="row text-center social">
-                        <div class="col-xs-12 col-sm-6 col-md-4">
-                            <a href="https://www.facebook.com/georgecosmin.morosanu" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <div class="col-xs-6 col-sm-4 col-md-2">
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=georgecosminmorosanu@gmail.com" target="_blank"><i class="far fa-envelope"></i></a>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4">
+
+                        <div class="col-xs-6 col-sm-4 col-md-2">
                             <a href="https://www.linkedin.com/in/george-cosmin-morosanu-58272115a/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4">
+
+                        <div class="col-xs-6 col-sm-4 col-md-2">
                             <a href="https://github.com/GeorgeMorosanu" target="_blank"><i class="fab fa-github"></i></a>
                         </div>
+
+                        <div class="col-xs-6 col-sm-4 col-md-2">
+                            <a href="https://www.facebook.com/georgecosmin.morosanu" target="_blank"><i class="fab fa-facebook"></i></a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-4 col-md-2">
+                            <a href="https://steamcommunity.com/id/GadoZ/" target="_blank"><i class="fab fa-steam"></i></a>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-4 col-md-2">
+                            <a href="https://www.instagram.com/george.morosanu1067/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+
                     </div>
                 </div>
             </div>
 
             <!-- Some info about me -->
-            <div class="col-lg-6">
-                <h3>Hello there!</h3>
-                <p>
-                    My name is George, I'm @years years old, I'm from Romania, and currently I'm living in Reykjavik, Iceland.
+            <div id="Short-About" class="col-lg-6">
+                <h1 class="text-center">Hello there!</h1>
+                <p class="text-size-130">
+                    &nbsp;&nbsp;My name is George, I'm @years years old, I'm from Romania, and currently I'm living in Reykjavik, Iceland.
                 </p>
-                <p>
-                    I have finished my undergraduate studies in Romania at <a href="http://www.uaic.ro/en/" target="_blank">"Alexandru Ioan Cuza" University of Iasi</a>, and I have a B.Sc. in the field of <a href="https://www.info.uaic.ro/en/home-page-2/" target="_blank">Computer Science</a>.
+                <p class="text-size-130">
+                    &nbsp;&nbsp;I have finished my undergraduate studies in Romania at <a class="a-text-normal" href="http://www.uaic.ro/en/" target="_blank">"Alexandru Ioan Cuza" University of Iasi</a>, and I have a B.Sc. in the field of <a class="a-text-normal" href="https://www.info.uaic.ro/en/home-page-2/" target="_blank">Computer Science</a>.
                 </p>
-                <p>
-                    Beside my passion for IT, I am interested in Design, Sports, Nutrition, Music and Games.
+                <p class="text-size-130">
+                    &nbsp;&nbsp;I am an open-minded and competitive person who will always keep my word, and I am the one the will go the extra mile to do a great job!
                 </p>
-                <br>
-                <p style="font-size:50px"> Some more text</p>
-                <p>
-                    You can find more details <a asp-area="" asp-controller="Home" asp-action="About" style="color:blue">Here</a>
+                <p class="text-size-130">
+                    &nbsp;&nbsp;Beside my passion for IT, I am interested in Design, Sports, Nutrition, Music and Games.
                 </p>
+                <p class="text-size-130">
+                    &nbsp;&nbsp;You can find more details about me <a asp-area="" asp-controller="Home" asp-action="About">here</a>, or if you're intrested in my resume, you can find it <a asp-area="" asp-controller="Resume" asp-action="Index">here</a>
+                </p>
+
+                <div id="Dates">
+                    <div id="LastUpdate" class="text-right">Last update: 11 April 2019</div>
+
+                    <div id="DateTime" class="text-right"></div>
+                </div>
+
             </div>
 
         </div>
     </div>
+    <script type="text/javascript">
+
+        refreshClock();
+       
+        function refreshClock() {
+
+            const NameOfMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var currentdate = new Date();
+
+            var currentDate = /*"Current date: " +*/ currentdate.getDate() + " "
+                + NameOfMonths[currentdate.getMonth()] + " "
+                + currentdate.getFullYear();
+
+            var currentTime = /*"Current time: ";*/"";
+
+            if (currentdate.getHours() < 10) {
+                currentTime = currentTime + "0";
+            }
+            currentTime = currentTime + currentdate.getHours() + ":";
+
+            if (currentdate.getMinutes() < 10) {
+                currentTime = currentTime + "0";
+            }
+            currentTime = currentTime + currentdate.getMinutes() + ":";
+
+            if (currentdate.getSeconds() < 10) {
+                currentTime = currentTime + "0";
+            }
+            currentTime = currentTime + currentdate.getSeconds();
+
+            //console.log("FullTime: " + new Date());
+            //console.log(currentDate + " / " + currentTime);
+            
+            //document.getElementById("Date").innerHTML = currentDate;
+            //document.getElementById("Time").innerHTML = currentTime;
+            document.getElementById("DateTime").innerHTML = "Current time: "+currentDate+", "+currentTime;
+
+            setTimeout(refreshClock, 1000);
+        }
+    </script>
