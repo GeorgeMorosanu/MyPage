@@ -75,7 +75,7 @@ using MyPage.Models;
                     ");
             EndContext();
             BeginContext(437, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "1283fe1538a64f75be446dff210857f8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f79fb0eb4870420687bd8fdcbd69be94", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -154,7 +154,7 @@ using MyPage.Models;
             WriteLiteral("d more details about me ");
             EndContext();
             BeginContext(3476, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0b567ba682424a6cbf139db892264acc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "75f8bff9c83944e8a59223b428c6c033", async() => {
                 BeginContext(3535, 4, true);
                 WriteLiteral("here");
                 EndContext();
@@ -180,7 +180,7 @@ using MyPage.Models;
             WriteLiteral(", or if you\'re intrested in my resume, you can find it ");
             EndContext();
             BeginContext(3598, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e8b3a470e3e64004ba5143d92da81cd7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6d2c9f8026ca499b9ba0d9a0fb1db6e3", async() => {
                 BeginContext(3656, 4, true);
                 WriteLiteral("here");
                 EndContext();

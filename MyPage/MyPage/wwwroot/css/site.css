@@ -229,8 +229,17 @@ No media query since this is the default in Bootstrap*/
     padding-bottom: 3%
 }
 
-.Story p {
+.story-padding {
+    padding-left: 13%;
+    padding-right: 13%;
+}
+
+.story-text-size {
     font-size: 18px;
+}
+
+.text-size-skills-story{
+    font-size: 20px;
 }
 
 #Sections {
