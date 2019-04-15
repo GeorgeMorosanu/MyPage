@@ -173,6 +173,7 @@ body {
 #DateTime, #LastUpdate {
     font-size: 24px;
 }
+
 #Dates{
     padding-top: 5%;
 }
@@ -216,3 +217,22 @@ No media query since this is the default in Bootstrap*/
 /*@media (max-width: 1200px) {
 
 }*/
+
+.text-align-normal{
+    text-align: initial;
+}
+
+.padding-top-increased {
+    padding-top: 3%;
+}
+.padding-bottom-increased{
+    padding-bottom: 3%
+}
+
+.Story p {
+    font-size: 18px;
+}
+
+#Sections {
+    opacity: 0;
+}

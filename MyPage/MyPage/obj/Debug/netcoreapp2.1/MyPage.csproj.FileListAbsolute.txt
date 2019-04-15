@@ -13,8 +13,6 @@ E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.AssemblyInfo.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.TagHelpers.input.cache
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.TagHelpers.output.cache
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.RazorCoreGenerate.cache
-E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -30,6 +28,7 @@ E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.pdb
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csproj.CopyComplete
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Carousel\_CarouselPartial.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Resume\Index.g.cshtml.cs
-E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Not_Found.g.cshtml.cs
-E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csprojAssemblyReference.cache
+E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\MyStory\Index.g.cshtml.cs
+E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Not_Found\Index.g.cshtml.cs
+E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Contact\Index.g.cshtml.cs

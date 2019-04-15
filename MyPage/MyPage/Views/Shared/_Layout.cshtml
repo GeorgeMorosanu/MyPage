@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -31,10 +32,10 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">George-Cosmin Morosanu</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About(My story)</a></li>
+                <ul id="Sections" class="nav navbar-nav navbar-right">
+                    <li><a asp-area="" asp-controller="MyStory" asp-action="Index">My story</a></li>
                     <li><a asp-area="" asp-controller="Resume" asp-action="Index">Resume</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -76,3 +77,7 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<script>
+    $("#Sections").animate({ opacity: 1 }, 1000);
+</script>

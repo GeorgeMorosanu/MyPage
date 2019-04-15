@@ -65,7 +65,7 @@ namespace MyPage
                 routes.MapRoute(
                     "Not_Found",
                     "{*url}",
-                    new { controller = "Home", action = "Not_Found" }
+                    new { controller = "Not_Found", action = "Index" }
                 );
             });
         }
