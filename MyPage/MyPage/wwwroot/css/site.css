@@ -242,6 +242,9 @@ No media query since this is the default in Bootstrap*/
     font-size: 20px;
 }
 
-#Sections {
+#Sections, #AppearAfter05Secs, #AppearAfter1Secs, #AppearAfter2Secs, #AppearAfter3Secs,
+#AppearAfter4Secs, #AppearAfter5Secs, #AppearAfter6Secs, #AppearAfter7Secs,
+#AppearAfter8Secs, #AppearAfter9Secs, #AppearAfter10Secs,
+#AppearAfter1Secs2, #AppearAfter05Secs2{
     opacity: 0;
 }
