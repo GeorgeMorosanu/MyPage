@@ -6,7 +6,6 @@ body {
     text-align: justify;
     word-break: break-word;
     background: linear-gradient(to right, #D3D3D3, transparent, transparent, transparent, transparent, transparent, #D3D3D3);
-    
 }
 
 .text-vertical-center {
@@ -64,6 +63,10 @@ body {
 .text-size-skills li {
     font-size: 120%;
     padding-bottom: 2%;
+    text-align: initial;
+}
+.text-align-normal {
+    text-align: initial;
 }
 
 .padding-left-right-none{
@@ -192,6 +195,7 @@ body {
 No media query since this is the default in Bootstrap*/
 /*Small (sm) devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
+   
 }
 /*Medium (md) devices (tablets, 768px and up)*/
 @media (max-width: 768px) {
@@ -247,4 +251,21 @@ No media query since this is the default in Bootstrap*/
 #AppearAfter8Secs, #AppearAfter9Secs, #AppearAfter10Secs,
 #AppearAfter1Secs2, #AppearAfter05Secs2{
     opacity: 0;
+}
+
+.a-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+   
+}
+
+.my_logo {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+
+    padding-left: 5%;
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-right: 0%;
 }

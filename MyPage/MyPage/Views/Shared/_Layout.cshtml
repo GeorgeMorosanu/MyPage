@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/scrollbar.css" />
+        <link rel="stylesheet" href="~/css/navbar.css" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
         <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     </environment>
@@ -21,7 +22,7 @@
 </head>
 <body>
     <!--<nav class="navbar navbar-inverse navbar-fixed-top"> -->
-    <nav class="navbar navbar-inverse navbar-expand-md navbar-light bg-light sticky-top">
+    <nav class="custom_navbar navbar navbar-inverse navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,12 +31,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">George-Cosmin Morosanu</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand a-logo"><img class="my_logo" src="~/images/Logo.gif"/></a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul id="Sections" class="nav navbar-nav navbar-right">
-                    <li><a asp-area="" asp-controller="MyStory" asp-action="Index">My story</a></li>
+                <ul id="Sections" class="nav navbar-nav navbar-right navbar-text-size">
                     <li><a asp-area="" asp-controller="Resume" asp-action="Index">Resume</a></li>
+                    <li><a asp-area="" asp-controller="MyStory" asp-action="Index">My story</a></li>
                     <li><a asp-area="" asp-controller="Contact" asp-action="Index">Contact</a></li>
                 </ul>
             </div>

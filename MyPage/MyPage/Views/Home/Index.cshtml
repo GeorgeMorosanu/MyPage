@@ -48,7 +48,7 @@
             <!-- Some info about me -->
             <div id="Short-About" class="col-lg-6">
                 <div id="AppearAfter05Secs2">
-                    <h1 class="text-center">Hello there!</h1>
+                    <h1 class="text-center"><span id="Greeting"></span></h1>
                     <p class="text-size-130">
                         &nbsp;&nbsp;My name is George, I'm @years years old, I'm from Romania, and currently I'm living in Reykjavik, Iceland.
                     </p>
@@ -67,7 +67,7 @@
                 </div>
                 <div id="AppearAfter1Secs2">
                     <div id="Dates">
-                        <div id="LastUpdate" class="text-right">Last update: 11 April 2019</div>
+                        <div id="LastUpdate" class="text-right">Last update: 16 April 2019</div>
 
                         <div id="DateTime" class="text-right"></div>
                     </div>
@@ -80,7 +80,30 @@
     <script type="text/javascript">
 
         refreshClock();
-       
+
+        refreshGreetingText();
+
+        function refreshGreetingText() {
+
+            var greeting = "";
+
+            var currentdate = new Date();
+
+            if (currentdate.getHours() < 12) {
+                greeting = "Good morning!"
+            }
+            else if (currentdate.getHours() < 18) {
+                greeting = "Good afternoon!"
+            }
+            else {
+                greeting = "Good evening!"
+            }
+            //console.log(greeting + "\n The time is: " + currentdate);
+
+            document.getElementById("Greeting").innerHTML = greeting;
+
+            setTimeout(refreshGreetingText, 50000);
+        }
         function refreshClock() {
 
             const NameOfMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -107,9 +130,6 @@
             }
             currentTime = currentTime + currentdate.getSeconds();
 
-            //console.log("FullTime: " + new Date());
-            //console.log(currentDate + " / " + currentTime);
-            
             //document.getElementById("Date").innerHTML = currentDate;
             //document.getElementById("Time").innerHTML = currentTime;
             document.getElementById("DateTime").innerHTML = "Current time: "+currentDate+", "+currentTime;
