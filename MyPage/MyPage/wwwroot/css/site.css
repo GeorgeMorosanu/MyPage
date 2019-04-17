@@ -269,3 +269,7 @@ No media query since this is the default in Bootstrap*/
     padding-bottom: 0%;
     padding-right: 0%;
 }
+
+#text_img{
+    padding-top: 2%;
+}
