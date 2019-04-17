@@ -52,7 +52,8 @@ body {
     font-size: 120%;
 }
 
-.padding-after-section{
+
+.padding-after-section {
     padding-bottom: 2%
 }
 
@@ -202,7 +203,8 @@ No media query since this is the default in Bootstrap*/
    
 }
 /*Medium (md) devices (tablets, 768px and up)*/
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+
     /* Hide/rearrange for smaller screens */
     /* Hide captions */
     .carousel-caption {
@@ -214,19 +216,120 @@ No media query since this is the default in Bootstrap*/
     .ul {
         list-style-type: none;
     }
+    .my_logo {
+        padding: 0 !important;
+        height: auto;
+        width: 100% !important;
+        padding-left: 3% !important;
+        padding-top: 3% !important;
+    }
+    .display-inline-on-phone{
+        align-items: inherit !important;
+    }
+    .a-logo{
+        width:80% !important;
+        text-align:center;
+    }
+
+    #DateTime, #LastUpdate {
+        font-size: 18px;
+    }
+    .text-size-personal-info {
+        font-size: 100%;
+    }
+    .text-size-130, .text-size-education-title {
+        font-size: 110%;
+    }
+    .projects li h4 {
+        font-size: 110%;
+    }
+    .text-normal-on-phones {
+        text-align: initial;
+    }
+
+    .text-size-120, .text-size-bigger, .personality li, .interests li {
+        font-size: 100%;
+    }
+    .contact {
+        font-size: 90%;
+        text-align: initial;
+    }
+
+    .padding-contact {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .body-content {
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+    }
+    .story-padding {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+    .story-text-size, .text-size-skills-story {
+        font-size: 14px !important;
+    }
+    .h2-text-size-phones {
+        font-size: 18px !important;
+    }
+    .extra-space-on-phones {
+        display: initial !important;
+    }
+
+    .resume-padding {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+    .ul-no-padding-left-on-phones {
+        padding-left: 0 !important;
+    }
+    #MyResume h2{
+        font-size: 125% !important;
+    }
+    .text-align-initial-phone{
+        text-align: initial !important;
+    }
+    .text-size-skills li, .projects li p {
+        font-size: 100%;
+    }
+    .not-display-on-phone {
+        display: none !important;
+    }
+
+    .display-on-phone {
+        display: initial !important;
+    }
+    .text-right-github {
+        float: left !important;
+        text-align: initial !important;
+    }
+
+    .project-period {
+        font-size: 90% !important;
+    }
 }
 
+.text-right-github{
+    float: right;
+}
 /*Large (lg) devices (desktops, 992px and up)*/
 /*@media (max-width: 992px) {
     
 }*/
-
 /*Extra (xl) large devices (large desktops, 1200px and up)*/
 /*@media (max-width: 1200px) {
 
 }*/
+.not-display-on-phone {
+    display: initial;
+}
 
-.text-align-normal{
+.display-on-phone {
+    display: none;
+}
+
+.text-align-normal {
     text-align: initial;
 }
 
@@ -276,4 +379,8 @@ No media query since this is the default in Bootstrap*/
 
 #text_img{
     padding-top: 2%;
+}
+
+.extra-space-on-phones {
+    display:none;
 }

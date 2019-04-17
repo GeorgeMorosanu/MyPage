@@ -105,7 +105,7 @@ using MyPage.Models;
             WriteLiteral("ook.com/georgecosmin.morosanu</a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n            <div class=\"col-lg-4\">\r\n                ");
             EndContext();
             BeginContext(2248, 90, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4e8af2722036411a9c055a80fc44b912", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f233fc8a53b64d87ab1c93bdb3bb2897", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
