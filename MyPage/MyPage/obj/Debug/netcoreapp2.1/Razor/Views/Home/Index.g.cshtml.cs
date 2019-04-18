@@ -75,7 +75,7 @@ using MyPage.Models;
                         ");
             EndContext();
             BeginContext(457, 71, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f8e16654de6b421f8b4eff31b81f309c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "8609e1f4f3534a109e56136215ec2e20", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -157,7 +157,7 @@ using MyPage.Models;
             WriteLiteral("    &nbsp;&nbsp;You can find more details about me ");
             EndContext();
             BeginContext(3794, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "269e630536424189b0dc6c11dab56b52", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "58ff421820054bddb9313288fe14e371", async() => {
                 BeginContext(3853, 4, true);
                 WriteLiteral("here");
                 EndContext();
@@ -183,7 +183,7 @@ using MyPage.Models;
             WriteLiteral(", or if you\'re intrested in my resume, you can find it right ");
             EndContext();
             BeginContext(3922, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "95457333c0974efdaf51e5169d5fa795", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b657d759860944af95f0d3870e3b71bd", async() => {
                 BeginContext(3980, 4, true);
                 WriteLiteral("here");
                 EndContext();
