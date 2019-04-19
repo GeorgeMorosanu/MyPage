@@ -1,12 +1,23 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
+﻿html {
+    overflow-y: scroll;
+}
 body {
-    padding-bottom: 20px;
     color: black !important;
     text-align: justify;
     word-break: break-word;
     background: linear-gradient(to right, #D3D3D3, transparent, transparent, transparent, transparent, transparent, #D3D3D3);
 }
+
+.navbar-brand{
+    padding: 0 !important;
+}
+
+.navbar{
+    border-radius:0 !important;
+    margin-top:0 !important;
+    z-index: 500;
+}
+
 
 .text-vertical-center {
     margin: auto;
@@ -15,6 +26,15 @@ body {
     background: #050148 !important;
 }
 
+.page-content-padding {
+    padding-top: 50px;
+}
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    transition: 0.5s ease-in-out all;
+}
 
 .background-cover {
     width: auto;
@@ -25,7 +45,6 @@ body {
     padding-left:3%;
 }
 
-
 .a-text-normal {
     color: black;
     text-decoration: none;
@@ -34,7 +53,6 @@ body {
 .a-text-normal:hover {
     color: black;
 }
-
 
 .text-size-education-title {
     font-size: 130%;
@@ -52,7 +70,8 @@ body {
     font-size: 120%;
 }
 
-.padding-after-section{
+
+.padding-after-section {
     padding-bottom: 2%
 }
 
@@ -69,6 +88,7 @@ body {
     padding-bottom: 2%;
     text-align: initial;
 }
+
 .text-align-normal {
     text-align: initial;
 }
@@ -124,7 +144,7 @@ body {
 }
 
 .fa-steam {
-    color: #0E1B2E; /*, #147EAE;*/
+    color: #0E1B2E;
 }
 .fa-github {
     color: #171515;
@@ -134,7 +154,8 @@ body {
     color: #0077B5 ;
 }
 
-.fa-facebook:hover, .fa-github:hover, .fa-linkedin:hover, .fa-envelope:hover, .fa-steam:hover, .fa-instagram:hover {
+.fa-facebook:hover, .fa-github:hover, .fa-linkedin:hover, 
+.fa-envelope:hover, .fa-steam:hover, .fa-instagram:hover {
     transition: color .3s;
     color: #393838;
 }
@@ -145,26 +166,9 @@ body {
 }
 
 
-/* Set some basic padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
 }
 
 .language-skills-padding {
@@ -195,45 +199,37 @@ body {
 .daily{
     color: green;
 }
-/*Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap*/
-/*Small (sm) devices (landscape phones, 576px and up)*/
-@media (max-width: 576px) {
-   
-}
-/*Medium (md) devices (tablets, 768px and up)*/
-@media (max-width: 768px) {
-    /* Hide/rearrange for smaller screens */
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
-    #Short-About {
-        padding-top: 3%;
-    }
-    .ul {
-        list-style-type: none;
-    }
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #030132 !important;
 }
 
-/*Large (lg) devices (desktops, 992px and up)*/
-/*@media (max-width: 992px) {
-    
-}*/
+.navbar-inverse .navbar-toggle {
+    border-color: white !important;
+}
 
-/*Extra (xl) large devices (large desktops, 1200px and up)*/
-/*@media (max-width: 1200px) {
+.text-right-github {
+    float: right;
+}
 
-}*/
+.not-display-on-phone {
+    display: initial;
+}
 
-.text-align-normal{
+.display-on-phone {
+    display: none;
+}
+
+.text-align-normal {
     text-align: initial;
 }
 
 .padding-top-increased {
     padding-top: 3%;
 }
-.padding-bottom-increased{
+
+.padding-bottom-increased {
     padding-bottom: 3%
 }
 
@@ -246,34 +242,159 @@ No media query since this is the default in Bootstrap*/
     font-size: 18px;
 }
 
-.text-size-skills-story{
+.text-size-skills-story {
     font-size: 20px;
 }
 
 #Sections, #AppearAfter05Secs, #AppearAfter1Secs, #AppearAfter2Secs, #AppearAfter3Secs,
 #AppearAfter4Secs, #AppearAfter5Secs, #AppearAfter6Secs, #AppearAfter7Secs,
 #AppearAfter8Secs, #AppearAfter9Secs, #AppearAfter10Secs,
-#AppearAfter1Secs2, #AppearAfter05Secs2{
+#AppearAfter1Secs2, #AppearAfter05Secs2 {
     opacity: 0;
 }
 
 .a-logo {
     margin: 0 !important;
     padding: 0 !important;
-   
 }
 
 .my_logo {
     height: auto;
     width: auto;
     max-height: 100%;
-
-    padding-left: 5%;
+    padding-left: /*5%;*/ 0%;
     padding-top: 0%;
     padding-bottom: 0%;
     padding-right: 0%;
 }
 
-#text_img{
+#text_img {
     padding-top: 2%;
+}
+
+.extra-space-on-phones {
+    display: none;
+}
+
+/*on Mobiles*/
+@media (max-width: 768px) {
+
+    #Short-About {
+        padding-top: 3%;
+    }
+
+    .ul {
+        list-style-type: none;
+    }
+
+    .my_logo {
+        padding: 0 !important;
+        height: auto;
+        width: auto;
+        padding-left: 3% !important;
+        padding-top: 3% !important;
+        max-width: 100% !important;
+        text-align:center;
+    }
+
+    .display-inline-on-phone{
+        align-items: inherit !important;
+    }
+
+    .a-logo{
+        width:80% !important;
+        text-align:center;
+    }
+
+    #DateTime, #LastUpdate {
+        font-size: 18px;
+    }
+
+    .text-size-personal-info {
+        font-size: 100%;
+    }
+
+    .text-size-130, .text-size-education-title {
+        font-size: 110%;
+    }
+
+    .projects li h4 {
+        font-size: 110%;
+    }
+
+    .text-normal-on-phones {
+        text-align: initial;
+    }
+
+    .text-size-120, .text-size-bigger, .personality li, .interests li {
+        font-size: 100%;
+    }
+
+    .contact {
+        font-size: 90%;
+        text-align: initial;
+    }
+
+    .padding-contact {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .story-padding {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+
+    .story-text-size, .text-size-skills-story {
+        font-size: 14px !important;
+    }
+
+    .h2-text-size-phones {
+        font-size: 18px !important;
+    }
+
+    .extra-space-on-phones {
+        display: initial !important;
+    }
+
+    .resume-padding {
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+
+    .ul-no-padding-left-on-phones {
+        padding-left: 0 !important;
+    }
+
+    #MyResume h2{
+        font-size: 125% !important;
+    }
+
+    .text-align-initial-phone{
+        text-align: initial !important;
+    }
+
+    .text-size-skills li, .projects li p {
+        font-size: 100%;
+    }
+
+    .not-display-on-phone {
+        display: none !important;
+    }
+
+    .display-on-phone {
+        display: initial !important;
+    }
+
+    .text-right-github {
+        float: left !important;
+        text-align: initial !important;
+    }
+
+    .project-period {
+        font-size: 90% !important;
+    }
+    .custom_navbar {
+        border-top: 0 !important;
+    }
 }

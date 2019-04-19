@@ -1,6 +1,5 @@
 ﻿html {
-    overflow-x: hidden;
-    margin-right: calc(-1 * (100vw - 100%));
+    overflow-y: scroll;
 }
 body {
     color: black !important;
@@ -15,15 +14,26 @@ body {
 
 .navbar{
     border-radius:0 !important;
-
-    margin-bottom:0 !important;
+    margin-top:0 !important;
+    z-index: 500;
 }
+
 
 .text-vertical-center {
     margin: auto;
 }
 .custom_navbar {
     background: #050148 !important;
+}
+
+.page-content-padding {
+    padding-top: 50px;
+}
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    transition: 0.5s ease-in-out all;
 }
 
 .background-cover {
@@ -161,22 +171,6 @@ body {
     padding-right: 15px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
-    width: 100%;
-}
-
-/* QR code generator */
-#qrCode {
-    margin: 15px;
-}
-
 .language-skills-padding {
     padding-bottom: 0 !important;
     margin-bottom: 0 !important;
@@ -283,13 +277,7 @@ body {
 }
 
 /*on Mobiles*/
-@media /*only screen and*/ (max-width: 768px) {
-
-    /* Hide/rearrange for smaller screens */
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+@media (max-width: 768px) {
 
     #Short-About {
         padding-top: 3%;
@@ -406,5 +394,7 @@ body {
     .project-period {
         font-size: 90% !important;
     }
-
+    .custom_navbar {
+        border-top: 0 !important;
+    }
 }

@@ -4,6 +4,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050148"/>
 
     <link rel="icon" href="~/images/MyLogo.png">
     <title>George-Cosmin Moroșanu</title>
@@ -17,8 +18,7 @@
 
 </head>
 <body>
-    <!--<nav class="navbar navbar-inverse navbar-fixed-top"> -->
-    <nav class="custom_navbar navbar navbar-inverse navbar-expand-md navbar-light bg-light sticky-top">
+    <nav id="navbar" class="custom_navbar navbar navbar-inverse navbar-expand-md navbar-light bg-light sticky-top">
         <div class="container display-inline-on-phone">
             <div class="navbar-header">
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand a-logo"><img class="my_logo" src="~/images/Logo.gif" /></a>
@@ -41,13 +41,10 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+
+    <div class="page-content-padding container body-content">
         @RenderBody()
         
-            @*<hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year</p>
-            </footer>*@ 
         
     </div>
 
@@ -87,5 +84,25 @@
     $("#AppearAfter05Secs").animate({ opacity: 1 }, 500);
     $("#AppearAfter05Secs2").animate({ opacity: 1 }, 500);
     $("#AppearAfter1Secs2").animate({ opacity: 1 }, 1000);
-   
+
+
+
+
+    var initialScrollPosition = window.pageYOffset;
+
+    window.onscroll = function () {
+        var currentScrollPosition = window.pageYOffset;
+
+        if (initialScrollPosition > currentScrollPosition) {
+            if (initialScrollPosition < 50) {
+                document.getElementById("navbar").style.top = "0";
+            }
+        } else {
+            if (initialScrollPosition > 50) {
+                document.getElementById("navbar").style.top = "-75px";
+            }
+        }
+
+        initialScrollPosition = currentScrollPosition;
+    }
 </script>
