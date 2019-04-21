@@ -32,3 +32,4 @@ E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csprojAssemblyRe
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\MyStory\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Not_Found\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Contact\Index.g.cshtml.cs
+E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Sudoku\Index.g.cshtml.cs

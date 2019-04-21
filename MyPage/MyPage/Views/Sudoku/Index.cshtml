@@ -1,0 +1,293 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div id="Sudoku">
+
+    </div>
+    <script>
+
+        var SudokuSolution = [];
+        var generalBreak = 0;
+
+        for (var i = 0; i < 9; i++) {
+            this.SudokuSolution[i] = []
+            for (var j = 0; j < 9; j++) {
+                this.SudokuSolution[i][j] = 0;
+            }
+        }
+
+        //console.log(SudokuSolution);
+
+        function generateSudoku() {
+
+            //var randomList = generateRandomList();
+
+            //for (var i = 0; i < 9; i++) {
+            //    this.SudokuSolution[0][i] = randomList[i];
+            //}
+            this.generalBreak = 0;
+            
+            var generalFailedAttempts = 0;
+
+            for (var i = 0; i < 9; i++) {
+                if (this.generalBreak == 1) {
+                    //console.log("Remake");
+                    break;
+                }
+                for (var j = 0; j < 9; j++) {
+                    var possibleElements = getListOfAvailableOptions(i, j);
+
+                    if (possibleElements.length == 0) {
+                        generalFailedAttempts++;
+                        j = 0;
+                        removeLine(i);
+                        i--;
+                        break;
+                    }
+
+
+                    var ok = 0, noAttepts = 0;
+
+                    while (ok == 0) {
+                        ok = 1;
+
+                        // To many failed attempts leads to remaking the line
+                        if (noAttepts > 50) {
+                            removeLine(i);
+                            i--;
+                            break;
+                        }
+                        
+                        var randomPosition = getRandomElement(possibleElements.length);
+                        var possibleChoice = possibleElements[randomPosition];
+                        this.SudokuSolution[i][j] = possibleChoice;
+
+                        if (checkPosition(i,j) == 0) {
+                            ok = 0;
+                            noAttepts++;
+                            generalFailedAttempts++;
+                        }
+
+                        if (generalFailedAttempts >= 5000) {
+                            this.generalBreak = 1;
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        generateSudoku();
+
+        if (this.generalBreak == 1) {
+            while (this.generalBreak == 1) {
+                //remaking the sudoku;
+                for (var k = 0; k < 9; k++) {
+                    removeLine(k);
+                }
+                generateSudoku();
+            }
+        }
+
+
+        //console.log(SudokuSolution);
+
+        //console.log(checkSudoku());
+
+       
+        function removeLine(x) {
+            for (var i = 0; i < 9; i++) {
+                this.SudokuSolution[x][i] = 0;
+            }
+        }
+
+        function generateRandomList() {
+            var returnedList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var firstIndex = 0,
+                secondIndex = 0,
+                aux=0;
+            for (var noShuffles = 0; noShuffles < 20; noShuffles++) {
+                firstIndex = getRandomElement(9);
+                secondIndex = getRandomElement(9);
+
+                while (secondIndex == firstIndex) {
+                    secondIndex = getRandomElement(9);
+                }
+                aux = returnedList[firstIndex];
+                returnedList[firstIndex] = returnedList[secondIndex];
+                returnedList[secondIndex] = aux;
+            }
+            return returnedList;
+        }
+
+        function checkSudoku(){
+            var ok = 1;
+            for (var i = 0; i < 9; i++){
+                for (var j = 0; j < 9; j++){
+                    if (checkPosition(i, j) == 0) {
+                        ok = 0;
+                    }
+                }
+            }
+            return ok;
+            //console.log(ok);
+        }
+
+        function getRandomElement(maxindex) {
+            return Math.floor((Math.random() * 100) % maxindex);
+        }
+
+        function checkPosition(i, j) {
+            if (checkLine(i) == 1 &&
+                checkColumn(j) == 1 &&
+                checkRegion(i, j) == 1)
+                return 1;
+            return 0;
+        }
+
+
+        function checkLine(x){
+            var myList = [];
+            for (var i = 0; i < 9; i++) {
+                myList.push(this.SudokuSolution[x][i]);
+            }
+            //console.log("checked line: " + myList);
+            return !checkDuplicatesInList(myList);
+        }
+        
+        function checkColumn(x){
+            var myList = [];
+            for (var i = 0; i < 9; i++) {
+                myList.push(this.SudokuSolution[i][x]);
+            }
+            //console.log("checked column: " + myList);
+            return !checkDuplicatesInList(myList);
+        }
+
+        function checkRegion(x,y){
+            var myList = [];
+
+            var initialI = 0,
+                finalI = 0,
+                initialJ = 0,
+                finalJ = 0;
+
+            if (x < 3) {
+                initialI = 0;
+                finalI = 3;
+            }
+            else if (x < 6) {
+                initialI = 3;
+                finalI = 6;
+            }
+            else {
+                initialI = 6;
+                finalI = 9;
+            }
+
+            if (y < 3) {
+                initialJ = 0;
+                finalJ = 3;
+            }
+            else if (y < 6) {
+                initialJ = 3;
+                finalJ = 6;
+            }
+            else {
+                initialJ = 6;
+                finalJ = 9;
+            }
+
+            for (i = initialI; i < finalI; i++) {
+                for (j = initialJ; j < finalJ; j++) {
+                    myList.push(this.SudokuSolution[i][j]);
+                }
+            }
+
+            //console.log("checked region: " + myList);
+            return !checkDuplicatesInList(myList);
+        }
+
+        function checkDuplicatesInList(myList) {
+            for (var i = 0; i < 8; i++) {
+                for (var j = i+1; j < 9; j++) {
+                    if (i != j && 
+                        myList[i] != 0 &&
+                        myList[j] != 0) {
+                        // If there are duplicates - line
+                        if (myList[i] == myList[j]) {
+                            // 1 = there are duplicates
+                            return 1;
+                        }
+                    }
+                }
+            }
+            // 0 - no duplicates
+            return 0;
+        }
+
+        //Checked
+        function getListOfAvailableOptions(i, j) {
+            var returnedList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var initialI = 0,
+                finalI = 0,
+                initialJ = 0,
+                finalJ = 0;
+
+            if (i < 3) {
+                initialI = 0;
+                finalI = 3;
+            }
+            else if (i < 6) {
+                initialI = 3;
+                finalI = 6;
+            }
+            else {
+                initialI = 6;
+                finalI = 9;
+            }
+
+            if (j < 3) {
+                initialJ = 0;
+                finalJ = 3;
+            }
+            else if (j < 6) {
+                initialJ = 3;
+                finalJ = 6;
+            }
+            else {
+                initialJ = 6;
+                finalJ = 9;
+            }
+
+            for (i = initialI; i < finalI; i++) {
+                for (j = initialJ; j < finalJ; j++) {
+                    if (this.SudokuSolution[i][j] != 0) {
+                        var index = returnedList.indexOf(this.SudokuSolution[i][j]);
+                        if (index > -1) {
+                            returnedList.splice(index, 1);
+                        }
+                    }
+                }
+            }
+            return returnedList;
+        }
+
+        function printSudoku() {
+            var text = "<table>";
+            for (var i = 0; i < 9; i++) {
+                text = text + "<tr>";
+                for (var j = 0; j < 9; j++) {
+                    text = text + "<td><input class=\"input-normal\" type=\"number\" value=\"" + this.SudokuSolution[i][j]+ "\"></td>";
+                }
+                text = text + "</tr>";
+            }
+            text = text + "</table>";
+            document.getElementById("Sudoku").innerHTML = text;
+        }
+        printSudoku();
+
+    </script>
