@@ -30,7 +30,7 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="navbar-collapse collapse">
+            <div id="CollapsableNavbar" class="navbar-collapse collapse">
                 <ul id="Sections" class="nav navbar-nav navbar-right navbar-text-size">
                     <li><a asp-area="" asp-controller="Resume" asp-action="Index">Resume</a></li>
                     <li><a asp-area="" asp-controller="MyStory" asp-action="Index">My story</a></li>
@@ -98,10 +98,15 @@
         if (initialScrollPosition > currentScrollPosition) {
             if (initialScrollPosition < 50) {
                 document.getElementById("navbar").style.top = "0";
+                //$('.navbar-collapse').fadeIn();
             }
         } else {
             if (initialScrollPosition > 50) {
                 document.getElementById("navbar").style.top = "-75px";
+                
+                $('.navbar-collapse').delay(1000).attr('aria-expanded', 'false');
+                $('.navbar-collapse').delay(1000).removeClass("in");
+                $('.navbar-collapse').delay(1000).style('height: 1px');
             }
         }
 

@@ -28,8 +28,8 @@ E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.pdb
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csproj.CopyComplete
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Carousel\_CarouselPartial.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Resume\Index.g.cshtml.cs
-E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csprojAssemblyReference.cache
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\MyStory\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Not_Found\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Contact\Index.g.cshtml.cs
 E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\Razor\Views\Sudoku\Index.g.cshtml.cs
+E:\Projects\MyPage\MyPage\MyPage\obj\Debug\netcoreapp2.1\MyPage.csprojAssemblyReference.cache
