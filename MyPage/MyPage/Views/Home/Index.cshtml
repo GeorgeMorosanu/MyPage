@@ -67,7 +67,7 @@
                 </div>
                 <div id="AppearAfter1Secs2">
                     <div id="Dates">
-                        <div id="LastUpdate" class="text-right">Last update: 19 April 2019</div>
+                        <div id="LastUpdate" class="text-right">Last update: 21 April 2019</div>
 
                         <div id="DateTime" class="text-right"></div>
                     </div>
@@ -109,11 +109,11 @@
             const NameOfMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             var currentdate = new Date();
 
-            var currentDate = /*"Current date: " +*/ currentdate.getDate() + " "
+            var currentDate = currentdate.getDate() + " "
                 + NameOfMonths[currentdate.getMonth()] + " "
                 + currentdate.getFullYear();
 
-            var currentTime = /*"Current time: ";*/"";
+            var currentTime = "";
 
             if (currentdate.getHours() < 10) {
                 currentTime = currentTime + "0";

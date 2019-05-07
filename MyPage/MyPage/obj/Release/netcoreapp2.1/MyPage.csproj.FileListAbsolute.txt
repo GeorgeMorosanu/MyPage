@@ -32,3 +32,4 @@ E:\Projects\MyPage\MyPage\MyPage\obj\Release\netcoreapp2.1\MyPage.Views.pdb
 E:\Projects\MyPage\MyPage\MyPage\obj\Release\netcoreapp2.1\MyPage.dll
 E:\Projects\MyPage\MyPage\MyPage\obj\Release\netcoreapp2.1\MyPage.pdb
 E:\Projects\MyPage\MyPage\MyPage\obj\Release\netcoreapp2.1\MyPage.csproj.CopyComplete
+E:\Projects\MyPage\MyPage\MyPage\obj\Release\netcoreapp2.1\Razor\Views\Sudoku\Index.g.cshtml.cs

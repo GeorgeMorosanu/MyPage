@@ -1,6 +1,7 @@
 ﻿html {
     overflow-y: scroll;
 }
+
 body {
     color: black !important;
     text-align: justify;
@@ -61,7 +62,6 @@ body {
 .education-padding{
     padding-top: 2%;
 }
-
 .text-size-120 {
     font-size: 120%;
 }
@@ -278,7 +278,6 @@ body {
 
 /*on Mobiles*/
 @media (max-width: 768px) {
-
     #Short-About {
         padding-top: 3%;
     }

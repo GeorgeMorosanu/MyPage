@@ -2,35 +2,54 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div>
-    <span>Time:</span>
-    <span>Mistakes:</span>
-</div>
-<div>
-    Rules
-</div>
-<div>
-    Type: Normal
-</div>
-<div id="Sudoku"></div>
 
-<div class="row">
-
-    <div class="col-4"><input id="easyMode" type="button" value="Easy" /></div>
-    <div class="col-4"><input id="mediumMode" type="button" value="Medium" /></div>
-    <div class="col-4"><input id="hardMode" type="button" value="Hard" /></div>
-    <div class="col-6">
-        <input id="remake" type="button" value="Remake" onclick="remakeSudoku();" />
+    <div id="Rules">
+        <input type="button" value="Rules" onclick="useHint();" />
     </div>
-    <div class="col-6">
-        <input id="solve" type="button" value="Solve" onclick="printSolution();" />
+
+    <div id="Hints">
+        <input type="button" value="Hint! (3 left)" onclick="useHint();"/>
+    </div>
+
+    <div>
+        showPossibilities - On/Off
+    </div>
+
+<div id="TimeWatch">TimeWatch: 00:00:00</div>
+<div id="Mistakes">Mistakes: 0</div>
+
+<div id="Type">
+    Type: Medium
+</div>
+
+
+<div class="text-center">
+    <div id="Possibilities"></div>
+</div>
+    <div id="Sudoku"></div>
+
+<div class="text-center">
+    <div class="row">
+
+        <div class="col-lg-4"><input id="easyMode" type="button" value="Easy" /></div>
+        <div class="col-lg-4"><input id="mediumMode" type="button" value="Medium" /></div>
+        <div class="col-lg-4"><input id="hardMode" type="button" value="Hard" /></div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <input id="remake" type="button" value="Remake" onclick="remakeSudoku();" />
+        </div>
+        <div class="col-lg-6">
+            <input id="solve" type="button" value="Solve" onclick="printSolution();" />
+        </div>
     </div>
 </div>
+
 <script>
 
     var SudokuSolution = [];
     var generalBreak = 0;
-
+    
     function generateSolution() {
         this.generalBreak = 0;
 
@@ -38,7 +57,7 @@
 
         for (var i = 0; i < 9; i++) {
             if (this.generalBreak == 1) {
-                //console.log("Remake");
+                // Remake
                 break;
             }
             for (var j = 0; j < 9; j++) {
@@ -92,18 +111,6 @@
         }
     }
 
-
-    function checkSudoku() {
-        var ok = 1;
-        for (var i = 0; i < 9; i++) {
-            for (var j = 0; j < 9; j++) {
-                if (checkPosition(i, j) == 0) {
-                    ok = 0;
-                }
-            }
-        }
-        return ok;
-    }
 
     function getRandomElement(maxindex) {
         return Math.floor((Math.random() * 100) % maxindex);
@@ -167,8 +174,8 @@
             finalJ = 9;
         }
 
-        for (i = initialI; i < finalI; i++) {
-            for (j = initialJ; j < finalJ; j++) {
+        for (var i = initialI; i < finalI; i++) {
+            for (var j = initialJ; j < finalJ; j++) {
                 myList.push(this.SudokuSolution[i][j]);
             }
         }
@@ -195,18 +202,18 @@
     }
 
     //Checked
-    function getListOfAvailableOptions(i, j) {
+    function getListOfAvailableOptions(x, y) {
         var returnedList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         var initialI = 0,
             finalI = 0,
             initialJ = 0,
             finalJ = 0;
 
-        if (i < 3) {
+        if (x < 3) {
             initialI = 0;
             finalI = 3;
         }
-        else if (i < 6) {
+        else if (x < 6) {
             initialI = 3;
             finalI = 6;
         }
@@ -215,11 +222,11 @@
             finalI = 9;
         }
 
-        if (j < 3) {
+        if (y < 3) {
             initialJ = 0;
             finalJ = 3;
         }
-        else if (j < 6) {
+        else if (y < 6) {
             initialJ = 3;
             finalJ = 6;
         }
@@ -228,8 +235,9 @@
             finalJ = 9;
         }
 
-        for (i = initialI; i < finalI; i++) {
-            for (j = initialJ; j < finalJ; j++) {
+        // Region
+        for (var i = initialI; i < finalI; i++) {
+            for (var j = initialJ; j < finalJ; j++) {
                 if (this.SudokuSolution[i][j] != 0) {
                     var index = returnedList.indexOf(this.SudokuSolution[i][j]);
                     if (index > -1) {
@@ -237,6 +245,26 @@
                     }
                 }
             }
+        }
+
+        // Column
+        for (var i = 0; i < 9; i++) {
+            if (this.SudokuSolution[x][i] != 0) {
+                    var index = returnedList.indexOf(this.SudokuSolution[x][i]);
+                    if (index > -1) {
+                        returnedList.splice(index, 1);
+                    }
+                }
+        }
+
+        // Column
+        for (var i = 0; i < 9; i++) {
+            if (this.SudokuSolution[i][y] != 0) {
+                    var index = returnedList.indexOf(this.SudokuSolution[i][y]);
+                    if (index > -1) {
+                        returnedList.splice(index, 1);
+                    }
+                }
         }
         return returnedList;
     }
@@ -246,7 +274,8 @@
         for (var i = 0; i < 9; i++) {
             text = text + "<tr>";
             for (var j = 0; j < 9; j++) {
-                text = text + "<td><input class=\"input-normal\" type=\"number\" value=\"" + this.SudokuSolution[i][j] + "\" disabled></td>";
+
+                text = text + "<td><input id=\"lc"+i+j+"\" maxlength=\"1\" class=\"input-normal given\" type=\"text\" value=\"" + this.SudokuSolution[i][j] + "\" disabled></td>";
             }
             text = text + "</tr>";
         }
@@ -277,17 +306,22 @@
 
     }
 
+    //Creating the Solution
     createSolution();
+    //Printing the Possibilities
+    printPossibilities([]);
 
     function printSudoku() {
         var text = "<table>";
         for (var i = 0; i < 9; i++) {
             text = text + "<tr>";
             for (var j = 0; j < 9; j++) {
-                if(this.SudokuPuzzle[i][j]!=0)
-                    text = text + "<td><input class=\"input-normal\" type=\"number\" value=\"" + this.SudokuPuzzle[i][j] + "\" disabled></td>";
-                else
-                    text = text + "<td><input class=\"input-normal\" type=\"number\" value=\"\"></td>";
+                if (this.SudokuPuzzle[i][j] != 0) {
+                    text = text + "<td><input id=\"lc"+i+j+"\" maxlength=\"1\" class=\"input-normal given\" type=\"text\" value=\"" + this.SudokuPuzzle[i][j] + "\" disabled></td>";
+                }
+                else {
+                    text = text + "<td><input id=\"lc"+i+j+"\" maxlength=\"1\" class=\"input-normal\" type=\"text\" value=\"\" onChange=\"updateSudoku()\" onClick=\"highlightPossibilities()\"></td>";
+                }
             }
             text = text + "</tr>";
         }
@@ -296,6 +330,11 @@
     }
 
     var SudokuPuzzle = [];
+    var mistakes = 0;
+    var hints = 3;
+    var starttime = Date.now();
+    var SudokuSolved = 0;
+
     //initializing with 0;
     function resetPuzzle() {
         for (var i = 0; i < 9; i++) {
@@ -305,6 +344,45 @@
             }
         }
     }
+    refreshTimeWatch();
+
+    function refreshTimeWatch() {
+
+        var seconds = Math.floor((Date.now() - starttime) / 1000);
+
+        // console.log(seconds);
+
+        document.getElementById("TimeWatch").innerHTML = "TimeWatch: " + timeFormat(seconds);
+
+        if (this.SudokuSolved == 0) {
+            setTimeout(refreshTimeWatch, 1000);
+        }
+
+
+    }
+
+     function timeFormat(timeInSeconds) {
+
+        var Hours = Math.floor(timeInSeconds / 3600);
+
+        var Minutes = Math.floor((timeInSeconds - Hours*3600)/ 60);
+
+        var Seconds = timeInSeconds - Hours*3600 - Minutes*60;
+
+        if (Hours < 10) {
+            Hours = "0" + Hours;
+        }
+        if (Minutes < 10) {
+            Minutes = "0" + Minutes;
+        }
+        if (Seconds < 10) {
+            Seconds = "0" + Seconds;
+         }
+         return Hours + ':' + Minutes + ':' + Seconds;
+    }
+     
+
+
 
     document.getElementById("easyMode").addEventListener("click", function(){
         easyModeOn();
@@ -319,25 +397,61 @@
     });
     document.getElementById("solve").addEventListener("click", function () {
         printSolution();
+
+       // console.log(this.SudokuSolved);
+
+        this.SudokuSolved = 1;
+
+       // console.log(this.SudokuSolved);
     });
     document.getElementById("remake").addEventListener("click", function(){
         remakeSudoku();
     });
-    
+
+
 
     function easyModeOn() {
         easy();
         printSudoku();
+
+        document.getElementById("Type").innerHTML = "Type: Easy";
+        this.mistakes = 0;
+        this.hints = 3;
+        this.starttime = Date.now();
+
+        refreshTimeWatch();
+        updateMistakes();
+        updateHints;
+
+        
     }
 
     function mediumModeOn() {
         medium();
         printSudoku();
+
+        document.getElementById("Type").innerHTML = "Type: Medium";
+        this.mistakes = 0;
+        this.hints = 3;
+        this.starttime = Date.now();
+
+        refreshTimeWatch();
+        updateMistakes();
+        updateHints;
     }
 
     function hardModeOn() {
         hard();
         printSudoku();
+
+        document.getElementById("Type").innerHTML = "Type: Hard";
+        this.mistakes = 0;
+        this.hints = 3;
+        this.starttime = Date.now();
+
+        refreshTimeWatch();
+        updateMistakes();
+        updateHints;
     }
 
     function easy() {
@@ -402,6 +516,13 @@
         document.getElementById("Sudoku").innerHTML = "";
         createSolution();
         generateSudoku();
+        document.getElementById("Type").innerHTML = "Type: Medium";
+        
+        this.starttime = Date.now();
+
+        refreshTimeWatch();
+        updateMistakes();
+        updateHints;
     }
 
     function generateSudoku() {
@@ -409,6 +530,329 @@
         printSudoku();
     }
 
+    //Generating the current Sudoku [the displayed puzzle]
     generateSudoku();
+
+
+    // onChange
+    function updateSudoku() {
+
+        var target = event.target;
+        if (target.value < '1' || target.value > '9') {
+            target.value = "";
+            this.SudokuPuzzle[target.id[2]][target.id[3]] = 0;
+
+             document.getElementById(target.id).classList.remove("good");
+                document.getElementById(target.id).classList.remove("wrong");
+                document.getElementById(target.id).classList.remove("great");
+        }
+        else {
+            this.SudokuPuzzle[target.id[2]][target.id[3]] = parseInt(target.value);
+
+            //checking the Correctness
+
+            // Blue = Correct & match my solution
+            // Green = Correct BUT doesn't match my solution
+            // Red = Wrong
+            
+            var checkThisPosition = checkPositionInMyAttempt(parseInt(target.id[2]), parseInt(target.id[3]));
+
+            if (checkThisPosition == 2) {
+                // Great! The correct solution
+                // Locking the position
+                
+                document.getElementById(target.id).classList.remove("good");
+                document.getElementById(target.id).classList.remove("wrong");
+                document.getElementById(target.id).classList.add("great");
+
+                document.getElementById(target.id).disabled = true;
+                
+            }
+            else if (checkThisPosition == 1) {
+                // GOOD, but not Perfect
+                // No mistake added
+                
+                document.getElementById(target.id).classList.remove("wrong");
+                document.getElementById(target.id).classList.remove("great");
+                document.getElementById(target.id).classList.add("good");
+            }
+            else {
+                // WRONG
+                // Mistake added
+
+                this.mistakes++;
+
+                document.getElementById(target.id).classList.remove("good");
+                document.getElementById(target.id).classList.remove("great");
+                document.getElementById(target.id).classList.add("wrong");
+
+                updateMistakes();
+
+            }
+        }
+
+        clearhighLight();
+        clearPossibilities();
+
+    }
+    function updateMistakes() {
+         document.getElementById("Mistakes").innerHTML = "Mistakes: "+mistakes;
+    }
+
+    function updateHints() {
+        document.getElementById("Hints").innerHTML = "<input type=\"button\" value=\"Hint! (" + this.hints + " left)\" onclick=\"useHint();\"/>";
+    }
+
+    function useHint() {
+        if (this.hints > 0) {
+            //console.log("Hint used!");
+            this.hints--;
+            updateHints();
+        }
+    }
+
+    function checkPositionInMyAttempt(i, j) {
+        // It's the match
+        if (this.SudokuPuzzle[i][j] == this.SudokuSolution[i][j]) {
+            return 2;
+        }
+
+        // It's a good call, but it's not the final solution
+        if (checkLineInMyAttempt(i) == 1 &&
+            checkColumnInMyAttempt(j) == 1 &&
+            checkRegionInMyAttempt(i, j) == 1)
+            return 1;
+
+        // It's a bad ball
+        return 0;
+    }
+    function checkLineInMyAttempt(x) {
+        var myList = [];
+        for (var i = 0; i < 9; i++) {
+            myList.push(this.SudokuPuzzle[x][i]);
+        }
+        return !checkDuplicatesInList(myList);
+    }
+
+    function checkColumnInMyAttempt(x) {
+        var myList = [];
+        for (var i = 0; i < 9; i++) {
+            myList.push(this.SudokuPuzzle[i][x]);
+        }
+        return !checkDuplicatesInList(myList);
+    }
+
+    function checkRegionInMyAttempt(x, y) {
+        var myList = [];
+
+        var initialI = 0,
+            finalI = 0,
+            initialJ = 0,
+            finalJ = 0;
+
+        if (x < 3) {
+            initialI = 0;
+            finalI = 3;
+        }
+        else if (x < 6) {
+            initialI = 3;
+            finalI = 6;
+        }
+        else {
+            initialI = 6;
+            finalI = 9;
+        }
+
+        if (y < 3) {
+            initialJ = 0;
+            finalJ = 3;
+        }
+        else if (y < 6) {
+            initialJ = 3;
+            finalJ = 6;
+        }
+        else {
+            initialJ = 6;
+            finalJ = 9;
+        }
+
+        for (var i = initialI; i < finalI; i++) {
+            for (var j = initialJ; j < finalJ; j++) {
+                myList.push(this.SudokuPuzzle[i][j]);
+            }
+        }
+        return !checkDuplicatesInList(myList);
+    }
+
+    function highlightPossibilities() {
+
+        clearhighLight();
+
+        var target = event.target;
+        var line = parseInt(target.id[2]),
+            column = parseInt(target.id[3]);
+        var possibleElements = getListOfAvailableOptionsForMyAttempt(line, column);
+
+        //Print Possibilities
+        //console.log(possibleElements);
+        printPossibilities(possibleElements);
+
+        //Highlight targeted zone
+        HighlightTargetedZone(line, column);
+
+    }
+
+    function printPossibilities(possibleElements) {
+        var text = "";
+        var k = 0;
+        for (var i = 1; i <= 9; i++) {
+            text = text + "<div class=\"circleShape";
+            if (k < possibleElements.length) {
+                if (i == possibleElements[k]) {
+                    text = text + " possibility";
+                    k++;
+                }
+            }
+            text = text + "\">" + i + "</div>";
+        }
+        document.getElementById("Possibilities").innerHTML = text;
+    }
+
+    function clearPossibilities(){
+        var text = "";
+         for (var i = 1; i <= 9; i++) {
+            text = text + "<div class=\"circleShape\">" + i + "</div>";
+        }
+        document.getElementById("Possibilities").innerHTML = text;
+    }
+
+    function getListOfAvailableOptionsForMyAttempt(x, y) {
+        var returnedList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        var initialI = 0,
+            finalI = 0,
+            initialJ = 0,
+            finalJ = 0;
+
+        if (x < 3) {
+            initialI = 0;
+            finalI = 3;
+        }
+        else if (x < 6) {
+            initialI = 3;
+            finalI = 6;
+        }
+        else {
+            initialI = 6;
+            finalI = 9;
+        }
+
+        if (y < 3) {
+            initialJ = 0;
+            finalJ = 3;
+        }
+        else if (y < 6) {
+            initialJ = 3;
+            finalJ = 6;
+        }
+        else {
+            initialJ = 6;
+            finalJ = 9;
+        }
+
+        // Region
+        for (var i = initialI; i < finalI; i++) {
+            for (var j = initialJ; j < finalJ; j++) {
+                if (this.SudokuPuzzle[i][j] != 0) {
+                    var index = returnedList.indexOf(this.SudokuPuzzle[i][j]);
+                    if (index > -1) {
+                        returnedList.splice(index, 1);
+                    }
+                }
+            }
+        }
+
+        // Column
+        for (var i = 0; i < 9; i++) {
+            if (this.SudokuPuzzle[x][i] != 0) {
+                    var index = returnedList.indexOf(this.SudokuPuzzle[x][i]);
+                    if (index > -1) {
+                        returnedList.splice(index, 1);
+                    }
+                }
+        }
+
+        // Column
+        for (var i = 0; i < 9; i++) {
+            if (this.SudokuPuzzle[i][y] != 0) {
+                    var index = returnedList.indexOf(this.SudokuPuzzle[i][y]);
+                    if (index > -1) {
+                        returnedList.splice(index, 1);
+                    }
+                }
+        }
+
+        return returnedList;
+    } 
+
+    function clearhighLight() {
+        for (var i = 0; i < 9; i++) {
+                for (var j = 0; j < 9; j++) {
+                    document.getElementById("lc" + i + j).classList.remove("highlightZone");
+                }
+        }
+    }
+
+    function HighlightTargetedZone(x, y) {
+
+        var initialI = 0,
+            finalI = 0,
+            initialJ = 0,
+            finalJ = 0;
+
+        if (x < 3) {
+            initialI = 0;
+            finalI = 3;
+        }
+        else if (x < 6) {
+            initialI = 3;
+            finalI = 6;
+        }
+        else {
+            initialI = 6;
+            finalI = 9;
+        }
+
+        if (y < 3) {
+            initialJ = 0;
+            finalJ = 3;
+        }
+        else if (y < 6) {
+            initialJ = 3;
+            finalJ = 6;
+        }
+        else {
+            initialJ = 6;
+            finalJ = 9;
+        }
+
+        for (var i = initialI; i < finalI; i++) {
+            for (var j = initialJ; j < finalJ; j++) {
+                document.getElementById("lc" + i + j).classList.add("highlightZone");
+            }
+        }
+        for (var i = 0; i < 9; i++) {
+            document.getElementById("lc" + x + i).classList.add("highlightZone");
+        }
+
+        for (var i = 0; i < 9; i++) {
+            document.getElementById("lc" + i + y).classList.add("highlightZone");
+        }
+
+        setTimeout(function () {
+            clearhighLight();
+        }, 7000);
+        
+    }
 
 </script>
