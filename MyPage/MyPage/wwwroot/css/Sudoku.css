@@ -26,6 +26,16 @@ tr:nth-child(3n) td {
     border-bottom: solid;
 }
 
+.table-rules {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    border-collapse: unset;
+}
+.display-inline{
+    display: inline-block;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -52,6 +62,9 @@ input[type=number]::-webkit-outer-spin-button {
 .given{
     color: darkblue;
 }
+.disabled {
+    color:rgb(235, 235, 228) ;
+}
 .highlightZone {
     background-color: #F6F6F6;
 }
@@ -68,8 +81,62 @@ input[type=number]::-webkit-outer-spin-button {
     display: inline-block;
 }
 
+.fontSizeTextOnMobile{
+    font-size: 20px;
+}
+@media (max-width: 768px) {
+
+    .circleShape {
+        width: 28px;
+        height: 28px;
+       
+        font-size: 16px;
+    }
+
+    table {
+        margin-bottom: 8px !important;
+        margin-top: 8px !important;
+    }
+
+    td {
+        height: 36px !important;
+        width: 36px !important;
+        font-size: 20px !important;
+    }
+
+    .btn{
+        margin: 2%;
+    }
+
+    .fontSizeTextOnMobile {
+        font-size: 14px;
+    }
+
+    .switch {
+        width: 45px !important;
+        height: 18px !important;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px !important;
+        width: 14px !important;
+        left: 2px !important;
+        bottom: 2px !important;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+    #Buttons{
+        text-align: center;
+    }
+}
+
+
 .possibility {
-    background: green;
+    background: #7CFC00;
 }
 
 .possibilityButton {
@@ -78,19 +145,28 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
     padding: 0 !important;
     font: inherit;
-    /*border is optional*/
-    border-bottom: 1px solid #444;
     cursor: pointer;
 }
 
-.visible{
+.visible {
     display: initial;
 }
 
-.invisible{
+.invisible {
     display: none !important;
 }
 
+#Type, #Mistakes, #TimeWatch, .fontSize20 {
+    font-size: 20px;
+}
+.fontSize18{
+    font-size: 18px;
+}
+
+.padding-left-right-increased {
+    padding-left: 17%;
+    padding-right: 17%;
+}
 
 /* The switch - the box around the slider */
 .switch {
@@ -100,12 +176,12 @@ input[type=number]::-webkit-outer-spin-button {
     height: 34px;
 }
 
-    /* Hide default HTML checkbox */
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
 /* The slider */
 .slider {
@@ -133,11 +209,11 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: darkblue;
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px darkblue;
 }
 
 input:checked + .slider:before {
@@ -154,3 +230,9 @@ input:checked + .slider:before {
     .slider.round:before {
         border-radius: 50%;
     }
+
+
+
+.modal-dialog{
+    width: 84% !important;
+}

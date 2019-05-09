@@ -2,86 +2,129 @@
 @{
     ViewData["Title"] = "Index";
 }
-    <div class="container-fluid">
+    <div class="container-fluid padding-top-increased">
 
+        <div class="row">
+            <div id="Buttons" class="col-lg-2 col-md-12 padding-left-right-none">
 
-        <div class="row text-center">
-            <div id="Buttons" class="col-lg-2 col-md-12">
-                Buttons
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div id="Rules">
+                            <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">Rules</button>
+                            <br />
+
+                            <!-- Rules -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <div class="modal-content fontSize18">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <p class="modal-title text-center"><b><i>Sudoku: Rules</i></b></p>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Your target is to complete the entire puzzle.</p>
+                                            <br />
+                                            <p>The rules are very simple:</p>
+                                            <p>You have to fill in the numbers 1-9 exactly once in every <b>Line</b>, <b>Column</b> and <b>3x3 Region</b>. </p>
+                                            <p>That's it!</p>
+                                            <br />
+                                            <p>To make it easier for you, I added a <b>Hint!</b> button, which you can use 3 times in a game. This button will reveal the correct answer for a chosen spot or for a random one (in case no spot was selected).</p>
+                                            <p>
+                                                Furthermore, I have included an option where you can see the <b><i>Possibilities</i></b> for a chosen spot in your Puzzle.
+                                                You can either write the answer down, or press any button from this section.
+                                            </p>
+                                            <br />
+                                            <p>You can choose between 3 levels of difficulty, the default one being Medium. If you want to complete a different difficulty, the application won't make a new puzzle.</p>
+                                            <p>To do so, you will have to either refresh the page, or to press the <b>Remake</b> button on the bottom of the page.</p>
+                                            <p>However, if you can't figure out the right solution (or you are in a hurry), you can just press the <b><i>Solve</i></b> button.</p>
+
+                                            <br />
+                                            <p>The initial given numbers will look like this: <span class="given fontSize20">1</span>, <span class="given fontSize20">2</span>, <span class="given fontSize20 fontSize20">3</span>, ... and their background will be gray.</p>
+                                            <p>Once a solution is found for a spot, it will turn to <span class="great fontSize20">this color</span>. It's background will turn into gray as well.</p>
+                                            
+                                            <p>The final solution is generated based on an algorithm, and it is locked.</p>
+                                            <p>So if you find a solution that doesn't match the generated solution, it is ok. The number of <span class="wrong fontSize20">Mistakes</span> will not increase unless you really made an wrong decision.</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div id="Hints">
+                            <input type="button" class="btn btn-outline-primary" value="Hint! (3 left)" onclick="useHint();" />
+                        </div>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-xs-6 col-md-12">
+                        <div id="Mistakes">Mistakes: 0</div>
+                    </div>
+                    <div class="col-xs-6 col-md-12">
+                        <div id="Type">Type: Medium</div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div id="TimeWatch">TimeWatch: 00:00:00</div>
+                    </div>
+                </div>
+                
             </div>
             <div class="col-lg-8 col-md-12">
-                Sudoku
+                <div id="Sudoku"></div>
             </div>
-            <div class="col-lg-2 col-md-12">
-                Display Possibilities
-                ListOfPossibilities
+            <div class="col-lg-2 col-md-12 padding-left-right-none">
+                <div class="text-center">
+                    <span class="fontSizeTextOnMobile"> Display Possibilities </span><span class="display-on-phone"><br /></span> 
+                    <label class="switch">
+                        <input type="checkbox" checked onclick="changePossibilityVisibility()">
+                        <span class="slider round"></span>
+                    </label>
+
+                    <br />
+
+                    <div id="Possibilities" class="visible"></div>
+
+                </div>
             </div>
         </div>
 
-        <div id="Rules">
-            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">Rules</button>
-
-            <!-- Rules -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title text-center">Sudoku: Rules</h4>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-xs-12 col-lg-8">
+                <div class="padding-left-right-increased">
+                    <div class="row text-center">
+                        <span class="display-on-phone"><br /></span>
+                        <p class="fontSizeTextOnMobile">Choose a difficulty:</p>
+                        <div class="col-xs-4">
+                            <button id="easyMode" type="button" class="btn btn-outline-success">Easy</button>
                         </div>
-                        <div class="modal-body">
-                            <p>The rules are simple:</p>
+                        <div class="col-xs-4">
+                            <button id="mediumMode" type="button" class="btn btn-outline-warning">Medium</button>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <div class="col-xs-4">
+                            <button id="hardMode" type="button" class="btn btn-outline-danger">Hard</button>
                         </div>
                     </div>
 
+                    <div class="row text-center padding-top-increased">
+                        <p class="fontSizeTextOnMobile">Available options:</p>
+                        <div class="col-xs-6">
+                            <button id="remake" type="button" class="btn btn-outline-primary" onclick="remakeSudoku();">Remake</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button id="solve" type="button" class="btn btn-outline-dark" onclick="printSolution();">Solve</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-2"></div>
+           
         </div>
 
-        <div id="Hints">
-            <input type="button" class="btn btn-outline-primary" value="Hint! (3 left)" onclick="useHint();" />
-        </div>
-
-        <div>
-            showPossibilities <label class="switch">
-                <input type="checkbox" checked onclick="changePossibilityVisibility()">
-                <span class="slider round"></span>
-            </label>
-        </div>
-
-
-        <div id="TimeWatch">TimeWatch: 00:00:00</div>
-
-        <div id="Mistakes">Mistakes: 0</div>
-
-        <div id="Type"> Type: Medium </div>
-
-
-        <div class="text-center">
-            <div id="Possibilities" class="visible"></div>
-        </div>
-        <div id="Sudoku"></div>
-
-        <div class="text-center">
-            <div class="row">
-
-                <div class="col-lg-4"><input id="easyMode" type="button" value="Easy" /></div>
-                <div class="col-lg-4"><input id="mediumMode" type="button" value="Medium" /></div>
-                <div class="col-lg-4"><input id="hardMode" type="button" value="Hard" /></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <input id="remake" type="button" value="Remake" onclick="remakeSudoku();" />
-                </div>
-                <div class="col-lg-6">
-                    <input id="solve" type="button" value="Solve" onclick="printSolution();" />
-                </div>
-            </div>
-        </div>
     </div>
 
 <script>
@@ -678,7 +721,7 @@
     }
 
     function updateHints() {
-        document.getElementById("Hints").innerHTML = "<input type=\"button\" class=\"btn btn-light\" value=\"Hint! (" + this.hints + " left)\" onclick=\"useHint();\"/>";
+        document.getElementById("Hints").innerHTML = "<input type=\"button\" class=\"btn btn-outline-primary\" value=\"Hint! (" + this.hints + " left)\" onclick=\"useHint();\" />"
     }
 
     function useHint() {
@@ -821,6 +864,7 @@
         var text = "";
         var k = 0;
         for (var i = 1; i <= 9; i++) {
+            
             text = text + "<div class=\"circleShape";
             if (k < possibleElements.length) {
                 if (i == possibleElements[k]) {
@@ -829,6 +873,7 @@
                 }
             }
             text = text + "\"> <input id=\"Possibility"+i+"\" type=\"button\" class=\"possibilityButton\" value=\"" + i + "\" onClick=\"placePossibility()\"/></div>";
+           
         }
         document.getElementById("Possibilities").innerHTML = text;
     }

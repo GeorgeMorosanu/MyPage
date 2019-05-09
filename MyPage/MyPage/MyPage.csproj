@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\bootstrap4\**" />
+    <Content Remove="wwwroot\lib\bootstrap4\**" />
+    <EmbeddedResource Remove="wwwroot\lib\bootstrap4\**" />
+    <None Remove="wwwroot\lib\bootstrap4\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Font.Awesome" Version="5.8.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
