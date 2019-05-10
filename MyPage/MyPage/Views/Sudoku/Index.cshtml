@@ -42,7 +42,7 @@
                                             <br />
                                             <p>The initial given numbers will look like this: <span class="given fontSize20">1</span>, <span class="given fontSize20">2</span>, <span class="given fontSize20 fontSize20">3</span>, ... and their background will be gray.</p>
                                             <p>Once a solution is found for a spot, it will turn to <span class="great fontSize20">this color</span>. It's background will turn into gray as well.</p>
-                                            
+
                                             <p>The final solution is generated based on an algorithm, and it is locked.</p>
                                             <p>So if you find a solution that doesn't match the generated solution, it is ok. The number of <span class="wrong fontSize20">Mistakes</span> will not increase unless you really made an wrong decision.</p>
                                         </div>
@@ -71,14 +71,14 @@
                         <div id="TimeWatch">TimeWatch: 00:00:00</div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-lg-8 col-md-12">
                 <div id="Sudoku"></div>
             </div>
-            <div class="col-lg-2 col-md-12 padding-left-right-none">
+            <div class="col-lg-2 col-md-12 col-xs-12 padding-left-right-none">
                 <div class="text-center">
-                    <span class="fontSizeTextOnMobile"> Display Possibilities </span><span class="display-on-phone"><br /></span> 
+                    <span class="fontSizeTextOnMobile"> Display Possibilities </span><span class="display-on-phone"><br /></span>
                     <label class="switch">
                         <input type="checkbox" checked onclick="changePossibilityVisibility()">
                         <span class="slider round"></span>
@@ -92,25 +92,30 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-xs-12 col-lg-8">
+        <div id="Bottom-Buttons" class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-md-12 col-lg-10">
                 <div class="padding-left-right-increased">
                     <div class="row text-center">
+
                         <span class="display-on-phone"><br /></span>
                         <p class="fontSizeTextOnMobile">Choose a difficulty:</p>
-                        <div class="col-xs-4">
-                            <button id="easyMode" type="button" class="btn btn-outline-success">Easy</button>
-                        </div>
-                        <div class="col-xs-4">
+
+                        <div class="centered-button col-xs-12 col-lg-12">
                             <button id="mediumMode" type="button" class="btn btn-outline-warning">Medium</button>
                         </div>
-                        <div class="col-xs-4">
+
+                        <div class="centered-button col-xs-6 col-lg-6">
+                            <button id="easyMode" type="button" class="btn btn-outline-success">Easy</button>
+                        </div>
+
+                        <div class="centered-button col-xs-6 col-lg-6">
                             <button id="hardMode" type="button" class="btn btn-outline-danger">Hard</button>
                         </div>
                     </div>
 
                     <div class="row text-center padding-top-increased">
+                        <br />
                         <p class="fontSizeTextOnMobile">Available options:</p>
                         <div class="col-xs-6">
                             <button id="remake" type="button" class="btn btn-outline-primary" onclick="remakeSudoku();">Remake</button>
@@ -121,8 +126,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-2"></div>
-           
+            <div class="col-lg-1"></div>
+
         </div>
 
     </div>

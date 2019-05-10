@@ -71,7 +71,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .circleShape {
     border-radius: 50%;
-    /* remove if you don't care about IE8 */
     width: 50px;
     height: 50px;
     text-align: center !important;
@@ -84,62 +83,81 @@ input[type=number]::-webkit-outer-spin-button {
 .fontSizeTextOnMobile{
     font-size: 20px;
 }
-@media (max-width: 768px) {
 
-    .circleShape {
-        width: 35px;
-        height: 35px;
-        font-size: x-large;
-    }
-
-    table {
-        margin-bottom: 8px !important;
-        margin-top: 8px !important;
-    }
-
-    td {
-        height: 36px !important;
-        width: 36px !important;
-        font-size: 20px !important;
-    }
-
-    .btn{
-        margin: 2%;
-    }
-
-    .fontSizeTextOnMobile {
-        font-size: 14px;
-    }
-
-    .switch {
-        width: 45px !important;
-        height: 18px !important;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 14px !important;
-        width: 14px !important;
-        left: 2px !important;
-        bottom: 2px !important;
-        background-color: white;
-        -webkit-transition: .4s;
-        transition: .4s;
-    }
-
-    #Buttons{
-        text-align: center;
-    }
-
-    .padding-left-right-increased {
-        padding-left: 0% !important;
-        padding-right: 0% !important;
-    }
+#Buttons {
+    text-align: center;
 }
 
+.centered-button{
+    text-align: center !important;
+}
 
-.possibility {
+.modal-dialog {
+    width: 84% !important;
+}
+
+    @media (max-width: 768px) {
+        .modal {
+            padding-top: 9% !important;
+            padding-left: 0% !important;
+            padding-right: 0% !important;
+        }
+
+        .modal-dialog {
+            width: 100% !important;
+            text-align: left;
+        }
+
+        .modal-content {
+            width: 100% !important;
+        }
+
+        .circleShape {
+            width: 35px;
+            height: 35px;
+            font-size: x-large;
+        }
+
+        table {
+            margin-bottom: 8px !important;
+            margin-top: 8px !important;
+        }
+
+        td {
+            height: 36px !important;
+            width: 36px !important;
+            font-size: 20px !important;
+        }
+
+
+        .fontSizeTextOnMobile {
+            font-size: 14px;
+        }
+
+        .switch {
+            width: 45px !important;
+            height: 18px !important;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px !important;
+            width: 14px !important;
+            left: 2px !important;
+            bottom: 2px !important;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .padding-left-right-increased {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+
+    .possibility {
     background: #7CFC00;
 }
 
@@ -234,9 +252,3 @@ input:checked + .slider:before {
     .slider.round:before {
         border-radius: 50%;
     }
-
-
-
-.modal-dialog{
-    width: 84% !important;
-}
