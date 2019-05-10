@@ -1,6 +1,7 @@
 ﻿html {
     overflow-y: scroll;
 }
+
 body {
     color: black !important;
     text-align: justify;
@@ -226,6 +227,10 @@ body {
 
 .padding-top-increased {
     padding-top: 3%;
+}
+
+.padding-left-increased {
+    padding-left: 3%;
 }
 
 .padding-bottom-increased {

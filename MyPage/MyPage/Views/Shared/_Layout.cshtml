@@ -76,6 +76,9 @@
 </html>
 
 <script>
+
+    window.location.reload(true);
+
     $("#Sections").animate({ opacity: 1 }, 1000);
 
     for (i = 1; i < 11; i++) {
@@ -96,7 +99,7 @@
         var currentScrollPosition = window.pageYOffset;
 
         if (initialScrollPosition > currentScrollPosition) {
-            if (initialScrollPosition < 50) {
+            if (initialScrollPosition <= 50) {
                 document.getElementById("navbar").style.top = "0";
                 //$('.navbar-collapse').fadeIn();
             }
@@ -112,4 +115,13 @@
 
         initialScrollPosition = currentScrollPosition;
     }
+
+    function checkScroll() {
+        if (window.pageYOffset <= 50) {
+                document.getElementById("navbar").style.top = "0";
+                //$('.navbar-collapse').fadeIn();
+        }
+        setTimeout(checkScroll, 2000);
+;    }
+    checkScroll();
 </script>

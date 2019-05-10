@@ -128,18 +128,21 @@
     </div>
 
 <script>
-
+    var showPossibilities = 1;
     var SudokuSolution = [];
     var generalBreak = 0;
     var lastPossition = " ";
 
     function changePossibilityVisibility() {
-        if (document.getElementById("Possibilities").classList.contains("invisible") == true) {
-            document.getElementById("Possibilities").classList.remove("invisible");
+        if (/*document.getElementById("Possibilities").classList.contains("invisible") == true*/this.showPossibilities == 1) {
+            this.showPossibilities = 0;
+            //document.getElementById("Possibilities").classList.remove("invisible");
         }
         else {
-            document.getElementById("Possibilities").classList.add("invisible");
+            this.showPossibilities = 1;
+            //document.getElementById("Possibilities").classList.add("invisible");
         }
+        printPossibilities([]);
     }
 
         function generateSolution() {
@@ -413,14 +416,16 @@
                         text = text + "<td><input id=\"lc" + i + j + "\" maxlength=\"1\" class=\"input-normal given\" type=\"text\" value=\"" + this.SudokuPuzzle[i][j] + "\" disabled></td>";
                     }
                     else {
-                        text = text + "<td><input id=\"lc" + i + j + "\" maxlength=\"1\" class=\"input-normal\" type=\"text\" value=\"\" onChange=\"updateSudoku()\" onClick=\"highlightPossibilities()\"></td>";
+                        text = text + "<td><input id=\"lc" + i + j + "\" maxlength=\"1\" class=\"input-normal\" type=\"text\" value=\"\" onChange=\"updateSudoku()\" onClick=\"highlightPossibilities()\" onfocus=\"blurInput();\"></td>";
                     }
+
                 }
                 text = text + "</tr>";
             }
             text = text + "</table>";
             document.getElementById("Sudoku").innerHTML = text;
         }
+
 
         var SudokuPuzzle = [];
         var mistakes = 0;
@@ -853,7 +858,13 @@
 
         //Print Possibilities
         //console.log(possibleElements);
-        printPossibilities(possibleElements);
+
+        if (this.showPossibilities == 1) {
+            printPossibilities(possibleElements);
+        }
+        else {
+            printPossibilities([]);
+        }
 
         //Highlight targeted zone
         HighlightTargetedZone(line, column);
@@ -1045,5 +1056,11 @@
 
     checkIfItIsDone();
 
+
+    function blurInput(){
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            document.getElementById(event.target.id).blur();
+        }
+    }
 
 </script>
